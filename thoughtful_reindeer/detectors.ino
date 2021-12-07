@@ -19,11 +19,17 @@ bool checkButton() {
     Serial.println("bpresed");
     return true;
   }
-    else {false;}
+    else return false;
 }
 
 bool upThresHit(){
-  if(currentGSR>gsrBaseline+threshold){
+  if(currentGSR>gsrBaseline+threshold && currentGSR<gsrBaseline+(threshold*2)){
+    return true;
+  }
+    else return false;
+}
+bool upUpthresHit(){
+  if(currentGSR>gsrBaseline+(threshold*2)){
     return true;
   }
     else return false;
